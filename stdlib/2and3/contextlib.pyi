@@ -20,6 +20,9 @@ class ContextManager(Generic[_T]):
                  exc_val: Optional[Exception],
                  exc_tb: Optional[TracebackType]) -> bool: ...
 
+class _GeneratorContextManager:
+    ...
+
 def contextmanager(func: Callable[..., Iterator[_T]]) -> Callable[..., ContextManager[_T]]: ...
 
 if sys.version_info < (3,):
